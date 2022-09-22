@@ -1,0 +1,7 @@
+# Local development library for linux
+.venv
+# Cached Python and unnecessary files from django
+__pycache__/
+db.sqlite3
+# Rich boi problems
+.DS_Store 

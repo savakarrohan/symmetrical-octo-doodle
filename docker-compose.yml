@@ -1,0 +1,24 @@
+version: "3.9"
+# services or nicknamed the container
+services:
+  # web service for the web
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  # postgreSQL database server being constructed alongside
+  db:
+    image: postgres:13
+    volumes:
+      - postgre_data:/var/lib/postgresql/data/
+    # unsure of what this environment means.
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+# Volumes set up
+volumes:
+  postgre_data:
