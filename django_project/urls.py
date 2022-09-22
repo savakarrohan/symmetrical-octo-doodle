@@ -20,9 +20,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Authentication from the from the default auth app of Django
     # User management
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("allauth.urls")),
     # Custom Url for signup page
-    path("accounts/", include("accounts.urls")),
+    # path("accounts/", include("accounts.urls")),
     # path for pages app
     path('', include('pages.urls')),
 ]

@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     # thirdparty apps
+        # beautification
     'crispy_forms',
     'crispy_bootstrap5',
+        # authentication
+    'allauth',
+    'allauth.account',
     # Local apps
     # authentication app
     'accounts.apps.AccountsConfig',
@@ -142,11 +147,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Authentication settings from local model
 AUTH_USER_MODEL = "accounts.CustomUser"
 
-# Login Redirect URL for success
-LOGIN_REDIRECT_URL = "home"
 # logout success URL 
 LOGOUT_REDIRECT_URL = "home"
 
 # Django Crispy forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+#django-allauth config
+# Login Redirect URL for success
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT = "home"
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = ( "django.contrib.auth.backends.ModelBackend",
+"allauth.account.auth_backends.AuthenticationBackend", )
+# To always remember user info
+ACCOUNT_SESSION_REMEMBER = True
+
+# This is the email backend using the console for output
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
