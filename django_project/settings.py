@@ -135,3 +135,5 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Login Redirect URL for success
 LOGIN_REDIRECT_URL = "home"
+# logout success URL 
+LOGOUT_REDIRECT_URL = "home"
