@@ -163,6 +163,11 @@ AUTHENTICATION_BACKENDS = ( "django.contrib.auth.backends.ModelBackend",
 "allauth.account.auth_backends.AuthenticationBackend", )
 # To always remember user info
 ACCOUNT_SESSION_REMEMBER = True
+# Custom settings for the account type and data required
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
 
 # This is the email backend using the console for output
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
