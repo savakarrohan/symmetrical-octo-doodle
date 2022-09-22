@@ -1,8 +1,12 @@
+from pydoc import resolve
 from django.test import TestCase
 # User Model import taken from default specified in settings
 from django.contrib.auth import get_user_model
 # reverse for URL's 
 from django.urls import reverse
+
+from accounts.forms import CustomUserCreationForm
+from accounts.views import SignupPageView
 # Create your tests here.
 class CustomUserTests(TestCase):
     """Tests on our primary user model"""
@@ -38,3 +42,10 @@ class SingUpPageTests(TestCase):
         self.assertTemplateUsed(self.response,"registration/signup.html")
         self.assertContains(self.response,"Sign up")
         self.assertNotContains(self.response,"alksdfjvnasdjkAfqwo2r13r8efhwdsnc1092r3eq")
+    def test_signup_form(self):
+        form = self.response.context.get("form")
+        self.assertIsInstance(form, CustomUserCreationForm)
+        self.assertContains(self.response, "csrfmiddlewaretoken")
+    def test_signup_view(self):
+        view = resolve("/accounts/signup/")
+        self.assertEqual(view.func.__name__, SignupPageView.as_view().__name__)
