@@ -10,7 +10,11 @@
 <a href="{% url 'logout' %}">Log out here </a>
 {% else %}
 <p> you are not logged in </p>
-<a href="{% url 'login' %}"> Log in here</a>
+<p>
+    <a href="{% url 'login' %}"> Log in here </a>
+    |
+    <a href="{% url 'signup' %}"> Sign up here </a>
+</p>
 {% endif %}
 
 {% endblock content %}
