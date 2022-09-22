@@ -1,9 +1,8 @@
-from pydoc import resolve
 from django.test import TestCase
 # User Model import taken from default specified in settings
 from django.contrib.auth import get_user_model
 # reverse for URL's 
-from django.urls import reverse
+from django.urls import reverse, resolve
 
 from accounts.forms import CustomUserCreationForm
 from accounts.views import SignupPageView
