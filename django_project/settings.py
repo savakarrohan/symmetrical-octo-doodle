@@ -127,6 +127,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Default directory to look for while searching for static files.
 STATICFILES_DIRS = [BASE_DIR / "static"]
+# Static root is where the default static app will keep all files
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# Defining the storage method for the static app.
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
