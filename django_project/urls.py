@@ -25,4 +25,6 @@ urlpatterns = [
     # path("accounts/", include("accounts.urls")),
     # path for pages app
     path('', include('pages.urls')),
+    # path for books app
+    path('books/', include("books.urls")),
 ]

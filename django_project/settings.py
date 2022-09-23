@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     # pages default layout app
     'pages.apps.PagesConfig',
+    # books app
+    'books.apps.BooksConfig',
 ]
 
 MIDDLEWARE = [
