@@ -11,6 +11,9 @@ services:
       - 8000:8000
     depends_on:
       - db
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-m#x2vcrd_2un!9b4la%^)ou&hcib&nc9fvqn0s23z%i1e5))6&"
+      - "DJANGO_DEBUG=True"
   # postgreSQL database server being constructed alongside
   db:
     image: postgres:13
